@@ -21,8 +21,7 @@ The Tradeledger APIs should interface with the Thirdparty, sending an eligibilit
 
 ### FE
 
-1. A React Bootstrap app
-2. Build Automation Tool - Node Product Manager
+1. Create React App (CRA)
 
 ### BE
 
@@ -48,12 +47,9 @@ Open the project with IntelliJ or Eclipse or any other IDE of your choice
 ### FE
 1. Go To terminal.
 2. cd client/cards -- Browse to Directory i.e. client/cards
-3. npm run install -- to install the app
-4. npm run test -- to test the app
-5. npm run start -- to run the app
-6. npm run bootstrap - Installs dependencies of the project and all submodules and links them together
-7. npm run clean - Cleans dependencies of the project and all submodules
-8. npm run reinstall - Cleans and installs fresh dependencies
+3. npm i -- to install the app
+4. npm test -- to test the app
+5. npm start -- to run the app
 
 ### BE
 1. Go To terminal.
@@ -75,7 +71,8 @@ _Note: Gradle version should be 6.0.1+_
 ## Stub structure
 
 ### FE
-TODO
+Within `/client/cards` the FE application is a simple CRA. You are provided with a simple form with inputs for name, email and address. You are required to implement the code to call the BE service and display the result. 
+Feel free to include any additional packages to implement, test and style the application.
 
 ### BE
 BE stub is provided in `/server/cards/tl-api`, this is setup to run a spring bootrun service on `localhost:8080`. 
