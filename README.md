@@ -15,60 +15,74 @@ The submission of this form will be received by a Tradeledger API and sent over 
 3. Both C1 and C2
 4. Neither C1 nor C2
 
-The Tradeledger APIs should receive the response from the Thirdparty and update the user with the result of their application.
+The Tradeledger APIs should interface with the Thirdparty, sending an eligibility request and updating the user with the result of their application.
 
 ## Exercise Overview
 
-FE
+### FE
 
-1. A React Bootstrap app
-2. Build Automation Tool - Node Product Manager
+1. Create React App (CRA)
 
-BE
+### BE
 
-1. A Microservices with Spring Boot
-2. Build Automation Tool - Gradle
+1. A Microservices with Spring Boot (2.2.3.RELEASE+)
+2. Build Automation Tool - Gradle (6.0.1+)
 
-## How to submit the exercise
+## Completing the exercise
 
-1. Clone the repo locally. 
+### Submission
+
+1. Fork the repo to your own repository or setup provided _.zip_ project into your own repository.
 2. Complete the exercise.
-3. Upload your completed project to your GitHub, and then paste a link to the repository below in the form along with any comments you have about your solution.
+3. Add [TL-Recruitment](https://github.com/TL-Recruitment) Github user to read your repository and/or provide a link to your repo with the completed task
+
+### Duration
+
+You should spend around ~1.5hrs on this task. You may spend longer if you wish, but ensure you think about which are the most critical pieces to complete first.
 
 ## How to Run
 
 Open the project with IntelliJ or Eclipse or any other IDE of your choice
 
-FE
+### FE
 1. Go To terminal.
 2. cd client/cards -- Browse to Directory i.e. client/cards
+3. npm i -- to install the app
+4. npm test -- to test the app
+5. npm start -- to run the app
 
-1. npm run install -- to install the app
-2. npm run test -- to test the app
-3. npm run start -- to run the app
-4. npm run bootstrap - Installs dependencies of the project and all submodules and links them together
-5. npm run clean - Cleans dependencies of the project and all submodules
-6. npm run reinstall - Cleans and installs fresh dependencies
-
-BE
+### BE
 1. Go To terminal.
 2. cd server/cards --- Browse to Directory i.e. server/cards
-
-1. ./gradlew build -- to build the solution
-2. ./gradlew test -- to unit test the solution
-3. ./gradlew bootRun -- to build the solution
-4. ./gradlew clean -- to clean the solution
+3. ./gradlew build -- to build the solution and third party
+4. ./gradlew test -- to unit/integration test the solution and third party
+5. ./gradlew bootRun -- to run the solution and third party applications simultaneously
+6. ./gradlew clean -- to clean the solution and third party
 
 or alternatively you can use IDE's builtin plugin for Gradle for these Gradle goals
+
+_Note: Gradle version should be 6.0.1+_
 
 ## Task
 
 1. For BE, in /server, build a synchronous Tradeledger API to orchestrate the journey from the application submission to retrieval of response. The API should call the provided Thirdparty endpoint over HTTP.
 2. For FE, in /client, implement a call to the API you've just built and display the results using the provided components.
 
-##
+## Stub structure
 
-Thirdparty contract:
+### FE
+Within `/client/cards` the FE application is a simple CRA. You are provided with a simple form with inputs for name, email and address. You are required to implement the code to call the BE service and display the result. 
+Feel free to include any additional packages to implement, test and style the application.
+
+### BE
+BE stub is provided in `/server/cards/tl-api`, this is setup to run a spring bootrun service on `localhost:8080`. 
+There is also the third party service which is setup as a separate subproject within gradle in `/server/cards/thirdparty`, 
+this exposes a third party service endpoint on `localhost:3317`.
+
+The structure of the `com.tradeledger.cards` structure is just a suggestion, feel free to modify or structure
+as you think is logical, makes sense and extendable in the future.
+
+### Thirdparty contract:
 
 _Request_
 
