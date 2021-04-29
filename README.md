@@ -34,7 +34,7 @@ The Tradeledger APIs should interface with the Thirdparty, sending an eligibilit
 
 1. Fork the repo to your own repository or setup provided _.zip_ project into your own repository.
 2. Complete the exercise.
-3. Add [TL-Recruitment](https://github.com/TL-Recruitment) Github user to read your repository and/or provide a link to your repo with the completed task
+3. Please provide a link to your public repo with the completed task to the Talent Acquisition team.
 
 ### Duration
 
@@ -111,3 +111,11 @@ _Response_
 1. The bank believes that the products would be extremely popular and around 1 million requests will be received in the first hour, tailing off from there
 2. The Thirdparty might take up to 10secs to respond to the request
 3. The processed applications and results need to be stored for up to 7 years for audit purposes
+
+## Assessment Criteria
+
+When assessing your completed solution we will be considering the follow 3 aspects:
+
+1. Correctness - how correct the solution is and that it is working
+2. Testability - how testible solution is and the type + level of testing
+3. Code structure - how well structured the solution is with considerations of extensibility in future and that it is clearly understandable
