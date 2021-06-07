@@ -1,16 +1,17 @@
 package com.tradeledger.cards.common;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public final class Applicant {
 
-	@NotNull
+	@NotEmpty
 	private String name;
 	
-	@NotNull
+	@NotEmpty
 	private String address;
 	
-	@NotNull
+	@NotEmpty
 	private String email;
 	
 	public Applicant() {}

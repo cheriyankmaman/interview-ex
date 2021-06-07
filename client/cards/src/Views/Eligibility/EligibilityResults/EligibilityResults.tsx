@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Card from "../../../DesignSystem/Card";
+import Title from "../../../DesignSystem/Title";
 
 const ResultsWrapper = styled.div`
   flex: 1 1 auto;
@@ -10,8 +12,23 @@ const ResultsWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const EligibilityResults = () => {
-  return <ResultsWrapper></ResultsWrapper>;
+
+interface Result {
+  result: string[];
+  submitted: boolean;
+  message:string
+}
+
+const EligibilityResults = ({result, submitted, message}:Result) => {
+const plurals = result.length>1?'s':'';
+  return (
+  <ResultsWrapper>
+    <Title>{message.length===0?(submitted?'You are eligible for '+result.length+' card'+plurals:''):message}</Title>
+    {result.map((res) => (
+        <Card key={res}> {res} </Card>
+      ))}
+  </ResultsWrapper>
+  );
 };
 
 export default EligibilityResults;

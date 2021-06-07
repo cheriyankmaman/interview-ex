@@ -1,4 +1,3 @@
-import React from "react";
 import { useFormik } from "formik";
 import styled from "styled-components";
 
@@ -16,15 +15,42 @@ interface FormValues {
   email: string;
   address: string;
 }
+interface EligibleProps{
+  eligible : (el :string[], msg:string) => void;
+}
 
-const EligibilityApplication = () => {
+const EligibilityApplication = ({eligible} : EligibleProps) => {
   const { handleChange, handleSubmit, values } = useFormik<FormValues>({
     initialValues: {
       name: "",
       email: "",
       address: "",
     },
-    onSubmit: (values) => console.log(values),
+    onSubmit: async (values, {resetForm}) => {
+      console.log(values)
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      const raw = JSON.stringify(values);
+
+      const response = await fetch("/lt/api/card/eligibility/check", {
+        method: 'POST',
+        body: raw,
+        redirect: 'follow',
+        headers: myHeaders
+      }).then((res) => {
+        console.log(res)
+        if(!res.ok){
+          eligible([], res.statusText);
+          return;
+        }
+        return res.json();
+      })
+
+      const { eligibleCards } = await response;
+      eligible(eligibleCards, "");
+      //resetForm();
+    },
   });
   return (
     <FormWrapper>
